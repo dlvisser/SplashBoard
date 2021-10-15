@@ -2,20 +2,20 @@ package com.daveleron.splashboard
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MotionEvent
-import android.view.View
-import android.webkit.WebView
-import com.daveleron.splashboard.ui.main.MainFragment
+import android.util.Log
+import androidx.lifecycle.lifecycleScope
+import com.daveleron.splashboard.network.RetrofitClient
+import com.daveleron.splashboard.network.model.PhotoDto
+import kotlinx.coroutines.launch
+
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
-                .commitNow()
+        lifecycleScope.launch {
+            val dto : PhotoDto = RetrofitClient.retrofitService.getRandomPhoto("Bearer Be_ALAPZCvtX6Jcy5KJHxZONQUG2aMS4Lm4IidRdEUg")
         }
     }
 }
