@@ -1,6 +1,8 @@
-package com.daveleron.splashboard.network.response
+package com.daveleron.splashboard.network.model
 
-data class User(
+import com.google.gson.annotations.SerializedName
+
+data class UserDto(
     val accepted_tos: Boolean,
     val bio: String,
     val first_name: String,
@@ -8,12 +10,15 @@ data class User(
     val id: String,
     val instagram_username: String,
     val last_name: String,
-    val links: LinksX,
+    @SerializedName("links")
+    val userLinks: UserLinksDto,
     val location: String,
     val name: String,
     val portfolio_url: String,
-    val profile_image: ProfileImage,
-    val social: Social,
+    @SerializedName("profile_image")
+    val profile_imageDto: ProfileImageDto,
+    @SerializedName("social")
+    val socialDto: SocialDto,
     val total_collections: Int,
     val total_likes: Int,
     val total_photos: Int,

@@ -9,4 +9,7 @@ data class PhotoDto(
 
     @SerializedName("description")
     var description: String,
+
+    @SerializedName("urls")
+    var urlsObjectDto: UrlsObjectDto
 )

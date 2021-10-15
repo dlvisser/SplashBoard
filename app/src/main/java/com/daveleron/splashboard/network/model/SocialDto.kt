@@ -1,6 +1,6 @@
-package com.daveleron.splashboard.network.response
+package com.daveleron.splashboard.network.model
 
-data class Social(
+data class SocialDto(
     val instagram_username: String,
     val paypal_email: Any,
     val portfolio_url: String,
