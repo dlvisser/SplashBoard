@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.daveleron.splashboard.R
@@ -27,7 +28,11 @@ class PhotoAdapter constructor(context: Context) : RecyclerView.Adapter<PhotoAda
         // image background
         holder.itemView.setBackgroundColor(Color.parseColor(photo.color))
         // loading the photo
-        holder.imageView.load(photo.urls.full)
+        holder.imageViewPhoto.load(photo.urls.regular)
+        // loading the user photo
+        holder.imageViewUserPhoto.load(photo.user.profileImage.medium)
+        // loading the user name
+        holder.textViewUserName.text = photo.user.username
     }
 
     override fun getItemCount(): Int {
@@ -45,6 +50,8 @@ class PhotoAdapter constructor(context: Context) : RecyclerView.Adapter<PhotoAda
      * UnsplashPhoto view holder.
      */
     class PhotoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val imageView: ImageView = view.findViewById(R.id.iv_item_unsplash_photo)
+        val imageViewPhoto: ImageView = view.findViewById(R.id.iv_item_unsplash_photo)
+        val imageViewUserPhoto : ImageView = view.findViewById(R.id.iv_item_user_photo)
+        val textViewUserName : TextView = view.findViewById(R.id.tv_item_user_name)
     }
 }
