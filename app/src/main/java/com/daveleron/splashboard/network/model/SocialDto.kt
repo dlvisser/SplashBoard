@@ -1,8 +1,14 @@
 package com.daveleron.splashboard.network.model
 
+import com.google.gson.annotations.SerializedName
+
 data class SocialDto(
-    val instagram_username: String,
-    val paypal_email: Any,
-    val portfolio_url: String,
-    val twitter_username: Any
+    @SerializedName("instagram_username")
+    val instagramUsername: String,
+    @SerializedName("paypal_email")
+    val paypalEmail: Any,
+    @SerializedName("portfolio_url")
+    val portfolioUrl: String,
+    @SerializedName("twitter_username")
+    val twitterUsername: String
 )

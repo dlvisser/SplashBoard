@@ -20,7 +20,6 @@ data class PhotoResponse(
     val location: LocationDto,
     val promoted_at: String,
     val sponsorship: Any,
-    val topic_submissionsDto: TopicSubmissionsDto,
     val updated_at: String,
     val urlsObjectDto: UrlsObjectDto,
     val userDto: UserDto,
