@@ -1,4 +1,4 @@
-package com.unsplash.pickerandroid.example
+package com.daveleron.splashboard.presentation
 
 import android.content.Context
 import android.graphics.Color
