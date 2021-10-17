@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_photo"
+        android:title="Images"
+        android:icon="@drawable/ic_image_foreground"/>
+    <item
+        android:id="@+id/navigation_search"
+        android:title="Search"
+        android:icon="@drawable/ic_search_foreground"/>
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_profile_foreground"/>
+</menu>

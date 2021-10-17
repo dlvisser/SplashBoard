@@ -33,7 +33,7 @@ class PhotoDisplayFragment : Fragment() {
 
         lifecycleScope.launch {
 //            val dto : PhotoDto = RetrofitClient.retrofitService.getRandomPhoto("Bearer Be_ALAPZCvtX6Jcy5KJHxZONQUG2aMS4Lm4IidRdEUg")
-            val dto : List<PhotoDto> = RetrofitClient.retrofitService.searchPhotos("Bearer Be_ALAPZCvtX6Jcy5KJHxZONQUG2aMS4Lm4IidRdEUg","Water").photoResults
+            val dto : List<PhotoDto> = RetrofitClient.retrofitService.getPhotoList("Bearer Be_ALAPZCvtX6Jcy5KJHxZONQUG2aMS4Lm4IidRdEUg",1)
             Log.d("Hello", "Hello")
             mAdapter.setListOfPhotos(dto)
         }
