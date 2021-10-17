@@ -2,38 +2,35 @@ package com.daveleron.splashboard
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.LinearLayout
-import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import coil.load
-import com.daveleron.splashboard.network.RetrofitClient
-import com.daveleron.splashboard.network.model.PhotoDto
-import com.unsplash.pickerandroid.example.PhotoAdapter
-import kotlinx.coroutines.launch
-
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.daveleron.splashboard.databinding.MainActivityBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mAdapter: PhotoAdapter
+    private lateinit var binding : MainActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
 
-        val recyclerView : RecyclerView = findViewById(R.id.rvUnsplashPhotos)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        mAdapter = PhotoAdapter(this)
-        recyclerView.adapter = mAdapter
+        binding = MainActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        initBottomNavBar()
+    }
 
-        lifecycleScope.launch {
-//            val dto : PhotoDto = RetrofitClient.retrofitService.getRandomPhoto("Bearer Be_ALAPZCvtX6Jcy5KJHxZONQUG2aMS4Lm4IidRdEUg")
-            val dto : List<PhotoDto> = RetrofitClient.retrofitService.getPhotoList("Bearer Be_ALAPZCvtX6Jcy5KJHxZONQUG2aMS4Lm4IidRdEUg",1)
-            mAdapter.setListOfPhotos(dto)
-
-
-
-        }
+    private fun initBottomNavBar(){
+        val navView : BottomNavigationView = binding.bottomNavigationView
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+//        val appBarConfiguration = AppBarConfiguration(
+//            setOf(
+//                R.id.navigation_photo,R.id.navigation_search, R.id.navigation_profile
+//            )
+//        )
+//
+//        setupActionBarWithNavController(navController,appBarConfiguration)
+        navView.setupWithNavController(navController)
     }
 }
