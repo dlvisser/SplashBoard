@@ -1,4 +1,4 @@
-package com.daveleron.splashboard.presentation
+package com.daveleron.splashboard.presentation.photodisplay
 
 import android.content.Context
 import android.graphics.Color

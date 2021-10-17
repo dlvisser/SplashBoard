@@ -1,4 +1,4 @@
-package com.daveleron.splashboard.presentation
+package com.daveleron.splashboard.presentation.search
 
 import android.os.Bundle
 import android.view.LayoutInflater

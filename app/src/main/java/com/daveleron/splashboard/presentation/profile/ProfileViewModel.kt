@@ -1,4 +1,4 @@
-package com.daveleron.splashboard.presentation
+package com.daveleron.splashboard.presentation.profile
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

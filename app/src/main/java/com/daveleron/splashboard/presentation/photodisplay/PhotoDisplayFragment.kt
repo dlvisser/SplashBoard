@@ -1,4 +1,4 @@
-package com.daveleron.splashboard.presentation
+package com.daveleron.splashboard.presentation.photodisplay
 
 import android.os.Bundle
 import android.util.Log
@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.daveleron.splashboard.R
 import com.daveleron.splashboard.network.RetrofitClient
 import com.daveleron.splashboard.network.model.PhotoDto
-import com.daveleron.splashboard.network.response.PhotoSearchResponse
 import kotlinx.coroutines.launch
 
 class PhotoDisplayFragment : Fragment() {
