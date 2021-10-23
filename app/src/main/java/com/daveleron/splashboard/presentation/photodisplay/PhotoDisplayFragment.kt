@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.daveleron.splashboard.R
 import com.daveleron.splashboard.network.RetrofitClient
 import com.daveleron.splashboard.network.model.PhotoDto
+import com.daveleron.splashboard.network.pagination.PhotoRemoteDataSource
+import com.daveleron.splashboard.network.pagination.PhotoRemoteDataSourceImpl
 import kotlinx.coroutines.launch
 
 class PhotoDisplayFragment : Fragment() {
@@ -30,9 +32,13 @@ class PhotoDisplayFragment : Fragment() {
         mAdapter = PhotoAdapter(requireContext())
         recyclerView.adapter = mAdapter
 
+        val service : PhotoRemoteDataSourceImpl()
+
         lifecycleScope.launch {
 //            val dto : PhotoDto = RetrofitClient.retrofitService.getRandomPhoto("Bearer Be_ALAPZCvtX6Jcy5KJHxZONQUG2aMS4Lm4IidRdEUg")
-            val dto : List<PhotoDto> = RetrofitClient.retrofitService.getPhotoList("Bearer Be_ALAPZCvtX6Jcy5KJHxZONQUG2aMS4Lm4IidRdEUg",1)
+//            val dto : List<PhotoDto> = RetrofitClient.retrofitService.getPhotoList("Bearer Be_ALAPZCvtX6Jcy5KJHxZONQUG2aMS4Lm4IidRdEUg",1)
+            PhotoRemoteDataSourceImpl.getPhotos().collectLatest { movies ->
+                adapter?.submitData(movies)
             Log.d("Hello", "Hello")
             mAdapter.setListOfPhotos(dto)
         }
